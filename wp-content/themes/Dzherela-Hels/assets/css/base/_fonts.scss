@@ -1,0 +1,67 @@
+// Import Google Fonts
+// Montserrat: 400, 500, 600, 700
+// Inter: 400, 500, 600, 700
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap");
+
+// --- Headings (Montserrat) ---
+
+h1,
+.h1 {
+    @include typography($font-family-heading, $fw-medium, (32px, 52px), 38px);
+}
+
+h2,
+.h2 {
+    @include typography($font-family-heading, $fw-medium, (24px, 42px), 32px);
+
+    &.bold {
+        font-weight: $fw-bold;
+    }
+}
+
+h3,
+.h3 {
+    @include typography($font-family-heading, $fw-medium, (18px, 22px), 28px);
+}
+
+h4,
+.h4 {
+    @include typography($font-family-heading, $fw-bold, 18px, 26px);
+}
+
+// --- Body Text (Montserrat mostly) ---
+
+// 20px - SemiBold
+.text-xl {
+    @include typography($font-family-base, $fw-semibold, 20px, 24px);
+}
+
+// 18px - Regular (default) / SemiBold
+.text-lg {
+    @include typography($font-family-base, $fw-regular, 18px, 24px);
+
+    &.semibold {
+        font-weight: $fw-semibold;
+    }
+}
+
+// 16px - Medium (Accent)
+.text-md-accent {
+    @include typography($font-family-heading, $fw-medium, 16px, 24px);
+}
+
+// 15px - Regular (Standard Body)
+p,
+.text-md {
+    @include typography($font-family-base, $fw-regular, 15px, 24px);
+}
+
+// 14px - Medium (Small Accent)
+.text-sm-accent {
+    @include typography($font-family-heading, $fw-medium, 14px, 24px);
+}
+
+// 12px - Regular (Caption)
+.text-xs {
+    @include typography($font-family-base, $fw-regular, 12px, 24px);
+}
