@@ -1,14 +1,35 @@
+// Fonts
+$font-family-base: "Montserrat", sans-serif;
+$font-family-heading: "Inter", sans-serif;
+
+// Font weights
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+
 :root {
   // Gaps
-  --_section-gap: #{Clamp(2rem, 7.5rem)};
-  --_section-offset: #{Clamp(1rem, 8rem)};
+  --_section-gap: #{Clamp(convert-to-rem(60px), convert-to-rem(110px))};
+  --_section-offset: #{Clamp(convert-to-rem(16px), convert-to-rem(50px))};
 
-  // Colors
-  // --color-primary: #3498db;
+  // Base Colors
+
+  --color-primary: #7F419A;
+  --color-heading: #000000;
+  --color-text-dark: #000000;
+  --color-text-light: #ffffff;
+  --color-background: #ececec;
+
+
+  // White opacities
+  --color-white-15: rgba(247, 247, 247, 0.15);
+  --color-white-70: rgba(122, 122, 122, 0.7);
+  --color-white-50: rgba(255, 255, 255, 0.5);
+
   // --color-secondary: #2ecc71;
   // --color-accent: #e74c3c;
   // --color-background: #f4f4f4;
   // --color-text: #333333;
-  // --color-heading: #000000;
   // --color-border: #dddddd;
 }
