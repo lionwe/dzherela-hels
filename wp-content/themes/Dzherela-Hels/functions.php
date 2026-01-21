@@ -168,3 +168,12 @@ remove_action('in_admin_header', 'wp_global_styles_render_svg_filters');
 
 // 4. Disable Standard Gallery Styles
 add_filter('use_default_gallery_style', '__return_false');
+
+// ============================================
+// FIX: Output Buffering Zlib Conflict
+// ============================================
+remove_action('shutdown', 'wp_ob_end_flush_all', 1);
+add_action('shutdown', function () {
+    while (@ob_end_flush())
+        ;
+});

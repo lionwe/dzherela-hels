@@ -79,3 +79,20 @@ select {
   -moz-appearance: none;
   appearance: none;
 }
+
+// Visibility utilities for responsive content
+.desktop-only {
+  display: block;
+
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.mobile-only {
+  display: none;
+
+  @include mobile {
+    display: block !important;
+  }
+}
