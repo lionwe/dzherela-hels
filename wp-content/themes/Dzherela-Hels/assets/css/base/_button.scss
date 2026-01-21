@@ -1,0 +1,95 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: auto;
+    border-radius: convert-to-rem(32px);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+
+    &__text {
+        @include typography($font-family-base, $fw-regular, (16px, 16px), (16px, 16px));
+        letter-spacing: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: currentColor;
+        width: convert-to-rem(10px);
+        height: convert-to-rem(10px);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+    }
+
+    // Variations
+    &--primary {
+
+        // If it has NO icon, it's a standard pill button
+        &.btn--no-icon {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            padding: convert-to-rem(12px) convert-to-rem(20px);
+            gap: convert-to-rem(10px);
+
+            &:hover {
+                background-color: var(--color-primary-dark);
+            }
+        }
+
+        // If it HAS icon (like the consultation button), we split it
+        &:not(.btn--no-icon) {
+            background-color: transparent;
+            padding: 0;
+            gap: 0;
+
+            .btn__text {
+                background-color: var(--color-primary);
+                color: var(--color-text-light);
+                padding: convert-to-rem(12px) convert-to-rem(20px);
+                border-radius: convert-to-rem(32px);
+                height: 100%;
+                transition: background-color 0.3s ease;
+            }
+
+            .btn__icon-wrapper {
+                background-color: var(--color-primary);
+                color: var(--color-text-light);
+
+                width: convert-to-rem(41px);
+                height: auto;
+                align-self: stretch;
+
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+
+                padding: 0;
+
+                border-radius: convert-to-rem(30.5px);
+                margin-left: convert-to-rem(0px); // 0 gap
+                transition: background-color 0.3s ease;
+            }
+
+            @include hover {
+
+                .btn__text,
+                .btn__icon-wrapper {
+                    background-color: var(--color-primary-dark);
+                }
+            }
+        }
+    }
+}

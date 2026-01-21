@@ -1,0 +1,240 @@
+[
+    {
+        "key": "group_hero",
+        "title": "Hero секція",
+        "fields": [
+            {
+                "key": "field_tab_hero_content",
+                "label": "Контент",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "placement": "top",
+                "endpoint": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_hero_content",
+                "label": "Контент секції",
+                "name": "hero_content",
+                "type": "wysiwyg",
+                "instructions": "Вміст секції Hero. Структура:\n• Заголовок H1 (слово 'Хелс' виділіть жирним через Bold)\n• Два абзаци опису під заголовком (будуть розміщені по краях)\n\nПриклад:\nДжерела <strong>Хелс</strong>\nЛівий опис тексту...\nПравий опис тексту...",
+                "required": 1,
+                "conditional_logic": 0,
+                "default_value": "<h1>Джерела <strong>Хелс</strong></h1>\n<p>Лівий опис тексту</p>\n<p>Правий опис тексту</p>",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_tab_hero_bg",
+                "label": "Фон",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "placement": "top",
+                "endpoint": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_hero_bg_type",
+                "label": "Тип фону",
+                "name": "hero_bg_type",
+                "type": "button_group",
+                "instructions": "Оберіть тип фонового медіаконтенту для секції: відео або статичне зображення.",
+                "required": 1,
+                "conditional_logic": 0,
+                "choices": {
+                    "video": "Відео",
+                    "image": "Зображення"
+                },
+                "default_value": "video",
+                "layout": "horizontal",
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_hero_bg_video",
+                "label": "Фонове відео",
+                "name": "hero_bg_video",
+                "type": "file",
+                "instructions": "Завантажте відеофайл для фону у форматі MP4 або WebM. Відео відтворюватиметься автоматично без звуку.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_hero_bg_type",
+                            "operator": "==",
+                            "value": "video"
+                        }
+                    ]
+                ],
+                "return_format": "url",
+                "mime_types": "mp4,webm",
+                "library": "all",
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_hero_bg_image",
+                "label": "Фонове зображення",
+                "name": "hero_bg_image",
+                "type": "image",
+                "instructions": "Завантажте зображення для фону. Відображається замість відео, якщо обрано тип 'Зображення'. Рекомендований розмір: мінімум 1920x1080px.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_hero_bg_type",
+                            "operator": "==",
+                            "value": "image"
+                        }
+                    ]
+                ],
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "mime_types": "jpg,jpeg,png,webp",
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_tab_hero_badges",
+                "label": "Плашки",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "placement": "top",
+                "endpoint": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_hero_badges",
+                "label": "Інформаційні плашки",
+                "name": "hero_badges",
+                "type": "repeater",
+                "instructions": "Додайте до 2-х інформаційних плашок для відображення внизу секції. Плашка з телефоном додається автоматично з глобальних налаштувань сайту.",
+                "required": 0,
+                "conditional_logic": 0,
+                "layout": "table",
+                "button_label": "Додати плашку",
+                "min": 0,
+                "max": 2,
+                "collapsed": "",
+                "sub_fields": [
+                    {
+                        "key": "field_hero_badge_text",
+                        "label": "Текст",
+                        "name": "text",
+                        "type": "wysiwyg",
+                        "instructions": "Текст для плашки. Використовуйте тег <strong> для виділення ключових слів жирним шрифтом.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "tabs": "visual",
+                        "toolbar": "basic",
+                        "media_upload": 0,
+                        "delay": 0,
+                        "default_value": "",
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "parent_repeater": "field_hero_badges"
+                    }
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_tab_hero_form",
+                "label": "Форма",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "placement": "top",
+                "endpoint": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_hero_form_shortcode",
+                "label": "Шорткод форми",
+                "name": "hero_form_shortcode",
+                "type": "text",
+                "instructions": "Вставте шорткод форми reIntegration. Форма буде відображатися внизу секції Hero.",
+                "required": 0,
+                "conditional_logic": 0,
+                "default_value": "",
+                "placeholder": "[reintegration id=\"1\"]",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_type",
+                    "operator": "==",
+                    "value": "front_page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Налаштування hero секції на головній сторінці",
+        "show_in_rest": 0
+    }
+]

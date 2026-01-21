@@ -1,1 +1,111 @@
-header {}
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: convert-to-rem(20px) 0;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: convert-to-rem(80px);
+
+        @include mobile {
+            justify-content: space-between;
+            gap: 0;
+        }
+    }
+
+    &__logo {
+        margin-right: convert-to-rem(80px);
+
+        @include mobile {
+            margin-right: 0;
+        }
+
+        .custom-logo-link {
+            display: block;
+        }
+
+        img {
+            width: convert-to-rem(58px);
+            height: convert-to-rem(57px);
+            object-fit: contain;
+
+            @include mobile {
+                width: convert-to-rem(48px);
+                height: convert-to-rem(48px);
+            }
+        }
+    }
+
+    &__nav {
+        flex-grow: 0;
+        margin-right: convert-to-rem(68px);
+
+        @include mobile {
+            display: none;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                a {
+                    @include typography($font-family-heading, $fw-regular, (16px, 16px), (16px, 16px));
+
+                    text-decoration: none;
+                    color: var(--color-text-light);
+
+                    display: block;
+                    padding: convert-to-rem(10px);
+                    background-color: var(--color-white-70);
+                    border-radius: convert-to-rem(32px);
+                    transition: background-color 0.3s ease;
+                }
+
+                &.current-menu-item a,
+                &:hover a {
+                    background-color: var(--color-white-7);
+                }
+            }
+        }
+    }
+
+    &__action {
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &__burger {
+        display: none;
+
+        @include mobile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: convert-to-rem(48px);
+            height: convert-to-rem(48px);
+            background-color: var(--color-white-2);
+            border-radius: convert-to-rem(32px);
+            padding: 0;
+            cursor: pointer;
+            box-sizing: border-box;
+
+            img {
+                display: block;
+                width: convert-to-rem(16px);
+                height: convert-to-rem(9px);
+                margin: 0;
+            }
+        }
+    }
+}
