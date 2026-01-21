@@ -1,0 +1,64 @@
+{
+    "key": "group_cta_home",
+    "title": "Home: CTA Section",
+    "fields": [
+        {
+            "key": "field_cta_container_bg",
+            "label": "Фон контейнера",
+            "name": "cta_container_bg",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_cta_badges",
+            "label": "Бейджики (переваги)",
+            "name": "cta_badges",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "key": "field_cta_badge_text",
+                    "label": "Текст",
+                    "name": "text",
+                    "type": "text"
+                }
+            ],
+            "max": 3
+        },
+        {
+            "key": "field_cta_content",
+            "label": "Контент (Заголовок та опис)",
+            "name": "cta_content",
+            "type": "wysiwyg",
+            "toolbar": "full",
+            "media_upload": 0
+        },
+        {
+            "key": "field_cta_form_shortcode",
+            "label": "Шорткод форми",
+            "name": "cta_form_shortcode",
+            "type": "text",
+            "instructions": "Вставте шорткод форми з плагіна reIntegration"
+        },
+        {
+            "key": "field_cta_right_image",
+            "label": "Зображення справа",
+            "name": "cta_right_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "pages/home.php"
+            }
+        ]
+    ],
+    "menu_order": 3
+}
