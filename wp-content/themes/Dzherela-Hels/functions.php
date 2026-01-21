@@ -5,6 +5,9 @@ add_filter('upload_mimes', 'svg_upload_allow');
 add_action('wpcf7_before_send_mail', 'send_message_to_telegram');
 add_filter('wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 5);
 
+require get_template_directory() . '/includes/post-types.php';
+
+
 function enqueue_scripts_and_styles()
 {
 
