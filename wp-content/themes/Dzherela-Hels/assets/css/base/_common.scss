@@ -8,7 +8,7 @@
 }
 
 :where(section, header, footer) {
-  width: 100vw;
+  width: 100%;
 
   &>.container {
     width: min(90rem - var(--_section-offset) * 2, 100vw - var(--_section-offset) * 2);

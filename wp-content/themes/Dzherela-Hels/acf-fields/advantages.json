@@ -1,0 +1,122 @@
+[
+    {
+        "key": "group_advantages",
+        "title": "Секція Переваги",
+        "fields": [
+            {
+                "key": "field_advantages_bg_image",
+                "label": "Фонове зображення",
+                "name": "advantages_bg_image",
+                "type": "image",
+                "instructions": "Фонове зображення для секції переваг. Рекомендований розмір: мінімум 1920x1080px.",
+                "required": 0,
+                "conditional_logic": 0,
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "mime_types": "jpg,jpeg,png,webp",
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_advantages_title",
+                "label": "Заголовок H2",
+                "name": "advantages_title",
+                "type": "text",
+                "instructions": "Заголовок секції переваг",
+                "required": 1,
+                "conditional_logic": 0,
+                "default_value": "Наші переваги",
+                "placeholder": "Введіть заголовок",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_advantages_list",
+                "label": "Перелік переваг",
+                "name": "advantages_list",
+                "type": "repeater",
+                "instructions": "Додайте до 5 переваг. Кожна перевага може містити заголовок H3 та текст опису.",
+                "required": 1,
+                "conditional_logic": 0,
+                "layout": "block",
+                "button_label": "Додати перевагу",
+                "min": 1,
+                "max": 5,
+                "collapsed": "field_advantage_content",
+                "sub_fields": [
+                    {
+                        "key": "field_advantage_content",
+                        "label": "Контент переваги",
+                        "name": "content",
+                        "type": "wysiwyg",
+                        "instructions": "Використовуйте H3 для заголовка переваги та звичайний текст для опису.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 0,
+                        "delay": 0,
+                        "default_value": "",
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "parent_repeater": "field_advantages_list"
+                    }
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_advantages_image",
+                "label": "Зображення справа",
+                "name": "advantages_image",
+                "type": "image",
+                "instructions": "Зображення, яке відображається справа від переваг.",
+                "required": 1,
+                "conditional_logic": 0,
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "mime_types": "jpg,jpeg,png,webp",
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_type",
+                    "operator": "==",
+                    "value": "front_page"
+                }
+            ]
+        ],
+        "menu_order": 1,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Налаштування секції переваг на головній сторінці",
+        "show_in_rest": 0
+    }
+]
