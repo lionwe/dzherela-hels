@@ -1,0 +1,120 @@
+{
+    "key": "group_services_home",
+    "title": "Home: Services Section",
+    "fields": [
+        {
+            "key": "field_services_header_content",
+            "label": "Заголовок та опис",
+            "name": "services_header_content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Введіть заголовок (H2) та короткий опис (P). Вони будуть розміщені згідно дизайну.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_services_selection",
+            "label": "Вибір послуг",
+            "name": "services_selection",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Оберіть послуги для відображення (максимум 9). Якщо обрано більше 7 послуг, зображення знизу зникне.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "services"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": 9,
+            "return_format": "object"
+        },
+        {
+            "key": "field_services_bg_image",
+            "label": "Фонове зображення",
+            "name": "services_bg_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_services_bottom_image",
+            "label": "Нижнє зображення (замість останніх карток)",
+            "name": "services_bottom_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Це зображення буде відображатись, тільки якщо обрано 7 або менше послуг.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "pages/home.php"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}
