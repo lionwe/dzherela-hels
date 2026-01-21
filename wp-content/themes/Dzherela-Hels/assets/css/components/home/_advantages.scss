@@ -1,0 +1,185 @@
+.advantages {
+    position: relative;
+    margin-top: convert-to-rem(40px);
+    box-shadow: 0 convert-to-rem(4px) convert-to-rem(50px) 0 rgba(0, 0, 0, 0.25);
+
+    >.container {
+        padding-top: convert-to-rem(50px);
+        padding-bottom: convert-to-rem(35px);
+    }
+
+    &__bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__header {
+        position: relative;
+        z-index: 1;
+        margin-bottom: convert-to-rem(30px);
+    }
+
+    &__title {
+        @include typography($font-family-base, $fw-regular, (30px, 40px), 1);
+        margin: 0 0 convert-to-rem(10px) 0;
+        color: var(--color-text-dark);
+    }
+
+    &__underline {
+        display: block;
+        width: convert-to-rem(93px);
+        height: convert-to-rem(1px);
+        background-color: var(--color-black);
+    }
+
+    &__grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: convert-to-rem(30px);
+        margin-bottom: convert-to-rem(40px);
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: convert-to-rem(10px);
+        counter-reset: advantages-counter;
+
+        @include mobile {
+            gap: convert-to-rem(9px);
+        }
+    }
+
+    &__item {
+        position: relative;
+        padding: convert-to-rem(30px) convert-to-rem(23px);
+
+        @include mobile {
+            padding: convert-to-rem(30px) convert-to-rem(7px);
+        }
+
+        border-radius: convert-to-rem(32px);
+        background: var(--color-primary);
+        color: var(--color-text-light);
+        overflow: hidden;
+        counter-increment: advantages-counter;
+
+        &::after {
+            content: "0" counter(advantages-counter);
+            position: absolute;
+            right: convert-to-rem(26px);
+            bottom: convert-to-rem(-7px);
+            z-index: 0;
+            @include typography($font-family-base, $fw-regular, 70px, 60px);
+            color: var(--color-white-3);
+            pointer-events: none;
+
+            @include mobile {
+                right: convert-to-rem(8px);
+                bottom: convert-to-rem(-15px);
+            }
+        }
+    }
+
+    &__item-content {
+        position: relative;
+        z-index: 1;
+        max-width: convert-to-rem(530px);
+
+
+        h3 {
+            @include typography($font-family-base, $fw-regular, (22px, 25px), 20px);
+            margin: 0 0 convert-to-rem(10px) 0;
+            color: var(--color-text-light);
+        }
+
+        p {
+            @include typography($font-family-base, $fw-regular, (16px, 18px), 20px);
+            margin: 0;
+            color: var(--color-text-light);
+
+            @include mobile {
+                display: inline;
+            }
+        }
+
+        @include mobile {
+            max-width: convert-to-rem(350px);
+        }
+    }
+
+    &__image {
+        display: flex;
+        align-items: stretch;
+        height: convert-to-rem(689px);
+        border-radius: convert-to-rem(20px);
+        overflow: hidden;
+
+        @include mobile {
+            display: none;
+        }
+
+        picture,
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__cta {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__button {
+        &.btn--primary:not(.btn--no-icon) {
+            .btn__text {
+                padding: convert-to-rem(17px) convert-to-rem(70.5px);
+
+                @include mobile {
+                    padding: convert-to-rem(17px) convert-to-rem(20px);
+                }
+            }
+
+            .btn__icon-wrapper {
+                width: convert-to-rem(55px);
+                height: convert-to-rem(53px);
+                min-width: convert-to-rem(55px);
+                flex-shrink: 0;
+                padding: convert-to-rem(20px);
+                border-radius: convert-to-rem(30.5px);
+                gap: convert-to-rem(10px);
+            }
+
+            @include hover {
+
+                .btn__text,
+                .btn__icon-wrapper {
+                    background-color: var(--color-primary-dark);
+                }
+            }
+        }
+    }
+
+    @include mobile {
+        margin-top: convert-to-rem(100px);
+    }
+}
