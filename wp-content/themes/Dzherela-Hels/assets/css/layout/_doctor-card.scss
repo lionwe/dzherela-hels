@@ -1,0 +1,200 @@
+.doctor-card {
+    height: convert-to-rem(536px);
+    padding: convert-to-rem(10px);
+    border-radius: convert-to-rem(20px);
+    background: var(--color-gray-light, #f0f0f0);
+
+    &__image-wrapper {
+        position: relative;
+        height: convert-to-rem(445px);
+        border-radius: convert-to-rem(20px);
+        overflow: hidden;
+    }
+
+    &__image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+
+        // Cutout mask (Desktop)
+        $doctor_card_mask: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20518%20445%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%22M20%2C0%20H498%20C509.0457%2C0%20518%2C8.9543%20518%2C20%20V425%20C518%2C436.0457%20509.0457%2C445%20498%2C445%20H20%20C8.9543%2C445%200%2C436.0457%200%2C425%20V130%20C0%2C118.9543%208.9543%2C110%2020%2C110%20H234%20C245.0457%2C110%20254%2C101.0457%20254%2C90%20V20%20C254%2C8.9543%20262.9543%2C0%20274%2C0%20Z%22%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E";
+
+        // Cutout mask (Mobile - Deeper cutout)
+        $doctor_card_mask_mobile: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20518%20445%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%22M20%2C0%20H498%20C509.0457%2C0%20518%2C8.9543%20518%2C20%20V425%20C518%2C436.0457%20509.0457%2C445%20498%2C445%20H20%20C8.9543%2C445%200%2C436.0457%200%2C425%20V150%20C0%2C138.9543%208.9543%2C130%2020%2C130%20H234%20C245.0457%2C130%20254%2C121.0457%20254%2C110%20V20%20C254%2C8.9543%20262.9543%2C0%20274%2C0%20Z%22%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E";
+
+        -webkit-mask-image: url(#{$doctor_card_mask});
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: 0 0;
+        -webkit-mask-size: 100% 100%;
+
+        mask-image: url(#{$doctor_card_mask});
+        mask-repeat: no-repeat;
+        mask-position: 0 0;
+        mask-size: 100% 100%;
+
+        @include mobile {
+            -webkit-mask-image: url(#{$doctor_card_mask_mobile});
+            mask-image: url(#{$doctor_card_mask_mobile});
+        }
+
+        picture,
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transform: scale(1.30) translateX(convert-to-rem(60px));
+            transform-origin: top center;
+
+            @include mobile {
+                transform: scale(1.45) translateX(convert-to-rem(55px));
+            }
+        }
+    }
+
+    &__badges {
+        position: absolute;
+        top: convert-to-rem(5px);
+        left: convert-to-rem(5px);
+        display: flex;
+        flex-direction: column;
+        gap: convert-to-rem(10px);
+        z-index: 3;
+    }
+
+    &__badge {
+        border-radius: convert-to-rem(10px);
+        border: 1px solid var(--color-white);
+        padding: convert-to-rem(10px) convert-to-rem(15px);
+        background: rgba(178, 178, 178, 0.1);
+        width: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+        gap: convert-to-rem(4px);
+        box-shadow: 0 convert-to-rem(2px) convert-to-rem(8px) rgba(0, 0, 0, 0.05);
+
+        @include mobile {
+            &--category {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+            }
+        }
+    }
+
+    &__badge-value {
+        @include typography($font-family-base, $fw-semibold, (16px, 16px), (20px, 20px));
+        color: var(--color-text-dark);
+    }
+
+    &__badge-label {
+        @include typography($font-family-base, $fw-regular, (16px, 16px), (20px, 20px));
+        color: var(--color-text-dark);
+    }
+
+    &__overlay {
+        position: absolute;
+        bottom: convert-to-rem(4px);
+        left: convert-to-rem(16px);
+        right: convert-to-rem(16px);
+        width: calc(100% - #{convert-to-rem(32px)});
+        background: rgba(247, 247, 247, 0.7);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 convert-to-rem(4px) convert-to-rem(50px) 0 rgba(255, 255, 255, 0.25);
+        border-radius: convert-to-rem(16px);
+        padding: convert-to-rem(10px) convert-to-rem(16px) convert-to-rem(16.5px);
+        z-index: 4;
+
+        @include mobile {
+            bottom: convert-to-rem(9px);
+            left: convert-to-rem(16px);
+            right: convert-to-rem(10px);
+            width: auto;
+            padding: convert-to-rem(6.5px) convert-to-rem(6px) convert-to-rem(6.5px) convert-to-rem(10px);
+        }
+    }
+
+    &__content {
+        @include typography($font-family-base, $fw-regular, (18px, 18px), (20px, 20px));
+        color: var(--color-text-dark);
+        letter-spacing: -0.02em;
+
+        p {
+            margin: 0;
+
+            span {
+                @include typography($font-family-base, $fw-regular, (20px, 20px), (24px, 24px));
+                display: block; // Force block for correct flow
+                margin-bottom: convert-to-rem(4px);
+            }
+
+            strong {
+                font-weight: $fw-semibold;
+            }
+        }
+    }
+
+    &__footer {
+        margin-top: convert-to-rem(14px);
+        display: flex;
+        justify-content: center;
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        gap: convert-to-rem(10px);
+
+        &.btn--primary:not(.btn--no-icon) {
+            background: transparent;
+            padding: 0;
+
+            .btn__text {
+                background: transparent;
+                border: 1px solid var(--color-primary);
+                color: var(--color-text-dark);
+                padding: convert-to-rem(17px) convert-to-rem(101px);
+                flex: none;
+                text-align: center;
+                transition: all 0.3s ease;
+                border-radius: convert-to-rem(32px);
+
+                @include mobile {
+                    padding: convert-to-rem(17px) convert-to-rem(50px);
+                }
+            }
+
+            .btn__icon-wrapper {
+                background-color: transparent;
+                color: var(--color-primary);
+                border: 1px solid var(--color-primary);
+                width: convert-to-rem(52px);
+                height: convert-to-rem(52px);
+                min-width: convert-to-rem(52px);
+                flex-shrink: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                margin: 0;
+            }
+
+            @include hover {
+                .btn__text {
+                    background: var(--color-primary);
+                    color: var(--color-text-light);
+                }
+
+                .btn__icon-wrapper {
+                    background-color: var(--color-primary);
+                    color: var(--color-text-light);
+                }
+            }
+        }
+    }
+}

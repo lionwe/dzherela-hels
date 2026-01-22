@@ -92,4 +92,40 @@
             }
         }
     }
+
+    // Secondary button - transparent with border
+    &--secondary {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--color-primary);
+        border-radius: convert-to-rem(32px);
+        padding: 0;
+
+        .btn__text {
+            @include typography($font-family-base, $fw-regular, (16px, 16px), (16px, 16px));
+            color: var(--color-text-dark);
+            padding: convert-to-rem(12px) convert-to-rem(20px);
+        }
+
+        .btn__icon-wrapper {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            width: convert-to-rem(41px);
+            height: convert-to-rem(41px);
+            min-width: convert-to-rem(41px);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: convert-to-rem(30.5px);
+            margin: convert-to-rem(4px);
+            transition: background-color 0.3s ease;
+        }
+
+        @include hover {
+            background: var(--color-primary);
+
+            .btn__text {
+                color: var(--color-text-light);
+            }
+        }
+    }
 }

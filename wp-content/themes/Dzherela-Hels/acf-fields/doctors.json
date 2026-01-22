@@ -1,0 +1,64 @@
+{
+    "key": "group_doctors_fields",
+    "title": "Інформація про лікаря",
+    "fields": [
+        {
+            "key": "field_doctor_experience",
+            "label": "Досвід роботи",
+            "name": "doctor_experience",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Введіть кількість років досвіду (наприклад: 16 років досвіду)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "16 років досвіду",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_doctor_category",
+            "label": "Категорія спеціаліста",
+            "name": "doctor_category",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Введіть категорію спеціаліста (наприклад: спеціаліст вищої категорії)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "спеціаліст вищої категорії",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "doctors"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Додаткова інформація про лікаря: досвід роботи та категорія",
+    "show_in_rest": 0
+}

@@ -11,6 +11,7 @@ Template Name: Home
     <?php get_template_part('sections/home/advantages'); ?>
     <?php get_template_part('sections/home/services'); ?>
     <?php get_template_part('sections/home/cta'); ?>
+    <?php get_template_part('sections/home/our-doctors'); ?>
 </main>
 
 <?php get_footer(); ?>

@@ -1,0 +1,72 @@
+{
+    "key": "group_doctors_section",
+    "title": "Home: Doctors Section",
+    "fields": [
+        {
+            "key": "field_doctors_section_title",
+            "label": "Заголовок секції",
+            "name": "doctors_section_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Введіть заголовок секції лікарів",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Наші лікарі",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_doctors_section_selection",
+            "label": "Вибір лікарів",
+            "name": "doctors_section_selection",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Оберіть лікарів для відображення у секції",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "doctors"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "pages/home.php"
+            }
+        ]
+    ],
+    "menu_order": 3,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Налаштування секції лікарів на головній сторінці",
+    "show_in_rest": 0
+}
