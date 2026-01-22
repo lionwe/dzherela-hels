@@ -7,6 +7,7 @@
  * 1. Services (Послуги) -> Items: Service (Послуга)
  *    - Custom Taxonomy: service_category (Категорії послуг)
  *    - Custom Taxonomy: service_tag (Теги послуг)
+ * 2. Doctors (Лікарі) -> Items: Doctor (Лікар)
  */
 
 if (!defined('ABSPATH')) {
@@ -138,6 +139,53 @@ function dzherela_hels_register_cpts()
     );
 
     register_post_type('services', $args_services);
+
+    // ============================================
+    // 2. Doctors (Лікарі)
+    // ============================================
+    $labels_doctors = array(
+        'name' => _x('Лікарі', 'Post Type General Name', 'dzherela-hels'),
+        'singular_name' => _x('Лікар', 'Post Type Singular Name', 'dzherela-hels'),
+        'menu_name' => __('Лікарі', 'dzherela-hels'),
+        'name_admin_bar' => __('Лікар', 'dzherela-hels'),
+        'add_new' => __('Додати', 'dzherela-hels'),
+        'add_new_item' => __('Додати нового лікаря', 'dzherela-hels'),
+        'new_item' => __('Новий лікар', 'dzherela-hels'),
+        'edit_item' => __('Редагувати лікаря', 'dzherela-hels'),
+        'view_item' => __('Переглянути лікаря', 'dzherela-hels'),
+        'all_items' => __('Всі лікарі', 'dzherela-hels'),
+        'search_items' => __('Пошук лікарів', 'dzherela-hels'),
+        'not_found' => __('Лікарів не знайдено', 'dzherela-hels'),
+        'not_found_in_trash' => __('Лікарів не знайдено у кошику', 'dzherela-hels'),
+        'featured_image' => __('Фото лікаря', 'dzherela-hels'),
+        'set_featured_image' => __('Встановити фото', 'dzherela-hels'),
+        'remove_featured_image' => __('Видалити фото', 'dzherela-hels'),
+        'archives' => __('Архів лікарів', 'dzherela-hels'),
+    );
+
+    $args_doctors = array(
+        'label' => __('Лікарі', 'dzherela-hels'),
+        'description' => __('Лікарі медичного центру', 'dzherela-hels'),
+        'labels' => $labels_doctors,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'custom-fields'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-businessman',
+        'show_in_admin_bar' => true,
+        'show_in_nav_menus' => true,
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+        'rewrite' => array('slug' => 'doctors', 'with_front' => false),
+        'show_in_rest' => false, // Classic Editor / ACF
+    );
+
+    register_post_type('doctors', $args_doctors);
 }
 
 add_action('init', 'dzherela_hels_register_cpts');
