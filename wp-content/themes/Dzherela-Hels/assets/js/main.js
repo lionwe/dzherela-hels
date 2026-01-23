@@ -1,6 +1,7 @@
 import "./utils";
 
 
+import "./events/main";
 import "./swipers/main";
 import "./popups/main";
 import "./components/main";
