@@ -48,3 +48,27 @@
 			</div>
 		</div>
 	</header>
+
+	<section class="popup-menu" id="popup-menu">
+		<div class="container popup-menu__container">
+			<div class="popup-menu__header">
+				<div class="popup-menu__close">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/svg/close.svg" alt="Close"
+						width="16" height="16">
+				</div>
+			</div>
+			<nav class="popup-menu__nav">
+				<?php get_template_part('templates/navigation', null, array('location' => 'menu-header')); ?>
+			</nav>
+			<div class="popup-menu__action">
+				<?php
+				get_template_part('templates/button', null, [
+					'text' => 'Записатись на консультацію',
+					'link' => get_option('page_on_front'),
+					'type' => 'primary',
+					'icon_name' => 'consultation_arrow',
+				]);
+				?>
+			</div>
+	</section>
+	</div>
