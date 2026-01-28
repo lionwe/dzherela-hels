@@ -1,0 +1,64 @@
+{
+    "key": "group_contacts_home",
+    "title": "Home: Contacts Section",
+    "fields": [
+        {
+            "key": "field_contacts_container_bg",
+            "label": "Фон контейнера",
+            "name": "contacts_container_bg",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_contacts_badges",
+            "label": "Бейджики",
+            "name": "contacts_badges",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "key": "field_contacts_badge_text",
+                    "label": "Текст",
+                    "name": "text",
+                    "type": "text"
+                }
+            ],
+            "max": 3
+        },
+        {
+            "key": "field_contacts_content",
+            "label": "Контент зліва (Заголовок та опис)",
+            "name": "contacts_content",
+            "type": "wysiwyg",
+            "toolbar": "full",
+            "media_upload": 0
+        },
+        {
+            "key": "field_contacts_form_shortcode",
+            "label": "Шорткод форми",
+            "name": "contacts_form_shortcode",
+            "type": "text",
+            "instructions": "Вставте шорткод форми"
+        },
+        {
+            "key": "field_contacts_right_content",
+            "label": "Контент справа (Заголовок та опис)",
+            "name": "contacts_right_content",
+            "type": "wysiwyg",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "instructions": "Заголовок 'Інформація...' та опис"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "pages/home.php"
+            }
+        ]
+    ],
+    "menu_order": 4
+}

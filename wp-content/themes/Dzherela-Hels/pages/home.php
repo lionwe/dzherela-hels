@@ -13,6 +13,7 @@ Template Name: Home
     <?php get_template_part('sections/home/cta'); ?>
     <?php get_template_part('sections/home/our-doctors'); ?>
     <?php get_template_part('sections/home/reviews'); ?>
+    <?php get_template_part('sections/home/contacts'); ?>
 </main>
 
 <?php get_footer(); ?>

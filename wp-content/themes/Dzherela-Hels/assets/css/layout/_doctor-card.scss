@@ -19,26 +19,16 @@
         bottom: 0;
         z-index: 1;
 
-        // Cutout mask (Desktop)
-        $doctor_card_mask: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20518%20445%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%22M20%2C0%20H498%20C509.0457%2C0%20518%2C8.9543%20518%2C20%20V425%20C518%2C436.0457%20509.0457%2C445%20498%2C445%20H20%20C8.9543%2C445%200%2C436.0457%200%2C425%20V130%20C0%2C118.9543%208.9543%2C110%2020%2C110%20H234%20C245.0457%2C110%20254%2C101.0457%20254%2C90%20V20%20C254%2C8.9543%20262.9543%2C0%20274%2C0%20Z%22%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E";
+        // Mask is now handled via JS (doctor-card.js) dynamically
+        // Defaults to basic border-radius if JS fails (via overflow: hidden on wrapper)
+        // But here we rely on JS for the custom shape.
 
-        // Cutout mask (Mobile - Deeper cutout)
-        $doctor_card_mask_mobile: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20518%20445%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%22M20%2C0%20H498%20C509.0457%2C0%20518%2C8.9543%20518%2C20%20V425%20C518%2C436.0457%20509.0457%2C445%20498%2C445%20H20%20C8.9543%2C445%200%2C436.0457%200%2C425%20V150%20C0%2C138.9543%208.9543%2C130%2020%2C130%20H234%20C245.0457%2C130%20254%2C121.0457%20254%2C110%20V20%20C254%2C8.9543%20262.9543%2C0%20274%2C0%20Z%22%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E";
-
-        -webkit-mask-image: url(#{$doctor_card_mask});
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-position: 0 0;
-        -webkit-mask-size: 100% 100%;
-
-        mask-image: url(#{$doctor_card_mask});
         mask-repeat: no-repeat;
         mask-position: 0 0;
         mask-size: 100% 100%;
-
-        @include mobile {
-            -webkit-mask-image: url(#{$doctor_card_mask_mobile});
-            mask-image: url(#{$doctor_card_mask_mobile});
-        }
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: 0 0;
+        -webkit-mask-size: 100% 100%;
 
         picture,
         img {
@@ -46,11 +36,11 @@
             height: 100%;
             object-fit: cover;
             object-position: center top;
-            transform: scale(1.30) translateX(convert-to-rem(60px));
-            transform-origin: top center;
+            transform: scale(1.30);
+            transform-origin: top left;
 
             @include mobile {
-                transform: scale(1.45) translateX(convert-to-rem(55px));
+                transform: scale(1.45);
             }
         }
     }
