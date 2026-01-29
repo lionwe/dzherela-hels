@@ -13,6 +13,10 @@
         z-index: 0;
     }
 
+    @include mobile {
+        overflow-x: hidden;
+    }
+
     >.container {
         position: relative;
         z-index: 1;
@@ -83,7 +87,7 @@
         gap: convert-to-rem(44px);
         counter-reset: service-counter;
 
-        // Desktop: Force Grid even if 'swiper-wrapper' class is present
+        // Desktop: Force Grid
         @media (min-width: 992px) {
             display: grid !important;
             transform: none !important;

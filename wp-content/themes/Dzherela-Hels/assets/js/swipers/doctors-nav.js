@@ -19,7 +19,7 @@ const doctorsSwiper = () => {
         },
         breakpoints: {
             992: {
-                slidesPerView: 1.9,
+                slidesPerView: 2.7,
                 spaceBetween: 20,
             }
         }

@@ -1,4 +1,4 @@
-<footer class="page-footer">
+<footer id="footer" class="page-footer">
     <div class="container">
 
         <?php if (has_nav_menu('menu-footer')): ?>
@@ -35,6 +35,10 @@
         <?php endif; ?>
 
     </div>
+
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+        <?php echo file_get_contents(get_template_directory() . '/assets/img/svg/arrow-next.svg'); ?>
+    </button>
 </footer>
 <?php wp_footer(); ?>
 

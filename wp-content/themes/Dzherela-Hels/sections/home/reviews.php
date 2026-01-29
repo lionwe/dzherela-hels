@@ -6,7 +6,7 @@
  */
 ?>
 
-<section class="reviews">
+<section id="reviews" class="reviews">
     <div class="container">
         <div class="reviews__header">
             <h2 class="reviews__title">Відгуки</h2>

@@ -1,6 +1,9 @@
 .our-doctors {
     position: relative;
-    padding: convert-to-rem(60px) 0;
+
+    @include mobile {
+        overflow-x: hidden;
+    }
 
     &__wrapper {
         display: flex;
