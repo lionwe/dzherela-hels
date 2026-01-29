@@ -17,7 +17,7 @@ $address = get_field('address_main', 'option');
 $scheduler = get_field('schedule_list', 'option');
 ?>
 
-<section class="contacts">
+<section id="contacts" class="contacts">
     <div class="container">
         <div class="contacts__container-wrap">
             <?php if ($container_bg): ?>

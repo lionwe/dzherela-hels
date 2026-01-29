@@ -33,13 +33,6 @@ $has_badges = $experience || $category;
                         <span class="doctor-card__badge-label">досвіду</span>
                     </div>
                 <?php endif; ?>
-
-                <?php if ($category): ?>
-                    <div class="doctor-card__badge doctor-card__badge--category">
-                        <span class="doctor-card__badge-label">спеціаліст</span>
-                        <span class="doctor-card__badge-value"><?php echo esc_html($category); ?></span>
-                    </div>
-                <?php endif; ?>
             </div>
         <?php endif; ?>
 
@@ -60,9 +53,14 @@ $has_badges = $experience || $category;
             <div class="doctor-card__overlay">
                 <div class="doctor-card__content">
                     <?php if ($title): ?>
-                        <p><span><?php echo esc_html($title); ?></span></p>
+                        <div class="doctor-card__title"><?php echo esc_html($title); ?></div>
                     <?php endif; ?>
-                    <?php echo $content; ?>
+
+                    <?php if ($content): ?>
+                        <div class="doctor-card__description">
+                            <?php echo $content; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         <?php endif; ?>

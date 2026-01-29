@@ -12,7 +12,7 @@ $form_shortcode = get_field('cta_form_shortcode');
 $right_image = get_field('cta_right_image');
 ?>
 
-<section class="cta">
+<section id="cta" class="cta">
     <div class="container">
         <div class="cta__container-wrap">
             <?php if ($container_bg): ?>

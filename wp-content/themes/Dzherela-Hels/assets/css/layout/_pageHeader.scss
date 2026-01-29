@@ -30,13 +30,13 @@
         }
 
         img {
-            width: convert-to-rem(58px);
-            height: convert-to-rem(57px);
+            width: convert-to-rem(138px);
+            height: convert-to-rem(77px);
             object-fit: contain;
 
             @include mobile {
-                width: convert-to-rem(48px);
-                height: convert-to-rem(48px);
+                width: convert-to-rem(84px);
+                height: convert-to-rem(47px);
             }
         }
     }
