@@ -1,19 +1,63 @@
 <footer id="footer" class="page-footer">
     <div class="container">
 
-        <?php if (has_nav_menu('menu-footer')): ?>
-            <div class="page-footer__menu">
+        <div class="page-footer__content">
+            <?php if (has_nav_menu('menu-footer')): ?>
+                <div class="page-footer__menu">
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'menu-footer',
+                        'container' => false,
+                        'menu_class' => 'footer-menu',
+                        'depth' => 1,
+                        'fallback_cb' => '__return_false',
+                    ]);
+                    ?>
+                </div>
+            <?php endif; ?>
+
+            <div class="page-footer__separator"></div>
+
+            <div class="page-footer__socials">
                 <?php
-                wp_nav_menu([
-                    'theme_location' => 'menu-footer',
-                    'container' => false,
-                    'menu_class' => 'footer-menu',
-                    'depth' => 1,
-                    'fallback_cb' => '__return_false',
-                ]);
+                $socials = [
+                    'facebook' => [
+                        'url' => get_field('social_facebook', 'option'),
+                        'icon' => get_field('social_facebook_icon', 'option'),
+                    ],
+                    'instagram' => [
+                        'url' => get_field('social_instagram', 'option'),
+                        'icon' => get_field('social_instagram_icon', 'option'),
+                    ],
+                    'tiktok' => [
+                        'url' => get_field('social_tiktok', 'option'),
+                        'icon' => get_field('social_tiktok_icon', 'option'),
+                    ],
+                    'telegram' => [
+                        'url' => get_field('social_telegram', 'option'),
+                        'icon' => get_field('social_telegram_icon', 'option'),
+                    ],
+                    'youtube' => [
+                        'url' => get_field('social_youtube', 'option'),
+                        'icon' => get_field('social_youtube_icon', 'option'),
+                    ],
+                ];
+
+                foreach ($socials as $network => $data):
+                    if (!empty($data['url']) && !empty($data['icon'])):
+                        $icon_url = $data['icon']['url'] ?? $data['icon'];
+                        $icon_alt = $data['icon']['alt'] ?? $network;
+                        ?>
+                        <a href="<?php echo esc_url($data['url']); ?>" class="social-link" target="_blank"
+                            aria-label="<?php echo esc_attr(ucfirst($network)); ?>">
+                            <img src="<?php echo esc_url($icon_url); ?>" alt="<?php echo esc_attr($icon_alt); ?>">
+                        </a>
+                        <?php
+                    endif;
+                endforeach;
                 ?>
             </div>
-        <?php endif; ?>
+        </div>
 
         <div class="page-footer__divider"></div>
 
