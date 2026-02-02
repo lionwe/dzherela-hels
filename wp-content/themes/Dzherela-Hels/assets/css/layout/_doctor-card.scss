@@ -66,12 +66,12 @@
     }
 
     &__badge-value {
-        @include typography($font-family-base, $fw-semibold, (16px, 16px), (20px, 20px));
+        @include typography($font-family-base, $fw-semibold, 14px, 20px);
         color: var(--color-text-dark);
     }
 
     &__badge-label {
-        @include typography($font-family-base, $fw-regular, (16px, 16px), (20px, 20px));
+        @include typography($font-family-base, $fw-regular, 14px, 20px);
         color: var(--color-text-dark);
     }
 

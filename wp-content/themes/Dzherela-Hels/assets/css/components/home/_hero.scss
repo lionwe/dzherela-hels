@@ -123,7 +123,7 @@
             margin-bottom: convert-to-rem(24px);
 
             p {
-                @include typography($font-family-involve, $fw-regular, 18px, 24px);
+                @include typography($font-family-involve, $fw-regular, 16px, 24px);
                 display: inline;
                 text-align: center !important;
                 margin-left: 0 !important;
