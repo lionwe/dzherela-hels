@@ -10,6 +10,7 @@
     border: none;
     transition: all 0.3s ease;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
 
     &__text {
         @include typography($font-family-base, $fw-regular, (16px, 16px), (16px, 16px));
@@ -49,7 +50,7 @@
             }
         }
 
-        // If it HAS icon (like the consultation button), we split it
+        // If it HAS icon 
         &:not(.btn--no-icon) {
             background-color: transparent;
             padding: 0;
@@ -79,7 +80,7 @@
                 padding: 0;
 
                 border-radius: convert-to-rem(30.5px);
-                margin-left: convert-to-rem(0px); // 0 gap
+                margin-left: convert-to-rem(0px);
                 transition: background-color 0.3s ease;
             }
 

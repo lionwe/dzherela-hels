@@ -16,6 +16,14 @@
 <body>
 
 	<header id="header" class="header">
+		<?php
+		$header_cta = get_field('header_cta', 'option');
+		$cta_text = $header_cta['text'] ?? 'Записатись на консультацію';
+		$cta_link = $header_cta['link'] ?? '#contacts';
+		if (strpos($cta_link, '#') === 0 && !is_front_page()) {
+			$cta_link = home_url($cta_link);
+		}
+		?>
 		<div class="container header__container">
 			<div class="header__logo">
 				<?php
@@ -34,18 +42,18 @@
 			<div class="header__action">
 				<?php
 				get_template_part('templates/button', null, [
-					'text' => 'Записатись на консультацію',
-					'link' => get_option('page_on_front'),
+					'text' => $cta_text,
+					'link' => $cta_link,
 					'type' => 'primary',
 					'icon_name' => 'consultation_arrow',
 				]);
 				?>
 			</div>
 
-			<div class="header__burger">
+			<button class="header__burger" type="button" data-lenis-prevent>
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/svg/burger.svg" alt="Menu" width="16"
 					height="8">
-			</div>
+			</button>
 		</div>
 	</header>
 
@@ -63,8 +71,8 @@
 			<div class="popup-menu__action">
 				<?php
 				get_template_part('templates/button', null, [
-					'text' => 'Записатись на консультацію',
-					'link' => get_option('page_on_front'),
+					'text' => $cta_text,
+					'link' => $cta_link,
 					'type' => 'primary',
 					'icon_name' => 'consultation_arrow',
 				]);

@@ -99,6 +99,8 @@
             padding: 0;
             cursor: pointer;
             box-sizing: border-box;
+            border: none;
+            -webkit-tap-highlight-color: transparent;
 
             img {
                 display: block;
