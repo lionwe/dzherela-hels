@@ -146,7 +146,7 @@
     }
 
     &__badge {
-        @include typography($font-family-base, $fw-regular, (18px, 21px), (20px, 20px));
+        @include typography($font-family-base, $fw-regular, (16px, 21px), (20px, 20px));
         min-height: convert-to-rem(58px);
         padding: convert-to-rem(10px) convert-to-rem(15px);
         border-radius: convert-to-rem(32px);

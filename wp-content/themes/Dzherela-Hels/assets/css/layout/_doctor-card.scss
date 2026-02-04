@@ -66,12 +66,12 @@
     }
 
     &__badge-value {
-        @include typography($font-family-base, $fw-semibold, 14px, 20px);
+        @include typography($font-family-base, $fw-semibold, (13px, 14px), 20px);
         color: var(--color-text-dark);
     }
 
     &__badge-label {
-        @include typography($font-family-base, $fw-regular, 14px, 20px);
+        @include typography($font-family-base, $fw-regular, (13px, 14px), 20px);
         color: var(--color-text-dark);
     }
 
@@ -100,15 +100,15 @@
     }
 
     &__title {
-        @include typography($font-family-base, $fw-medium, (16px, 17px), (20px, 20px));
+        @include typography($font-family-base, $fw-medium, (14px, 17px), (20px, 20px));
         margin-bottom: convert-to-rem(4px);
     }
 
     &__description {
-        @include typography($font-family-base, $fw-regular, (14px, 14px), (20px, 20px));
+        @include typography($font-family-base, $fw-regular, (12px, 14px), (20px, 20px));
 
         p {
-            @include typography($font-family-base, $fw-regular, (14px, 14px), (20px, 20px));
+            @include typography($font-family-base, $fw-regular, (12px, 14px), (20px, 20px));
             margin: 0;
         }
 
