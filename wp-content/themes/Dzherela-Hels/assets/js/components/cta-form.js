@@ -7,27 +7,39 @@ class CtaForm {
   constructor() {
     // Form is inside .cta__form
     this.form = document.querySelector('.cta__form form');
-    
+
     if (!this.form) return;
-    
-    this.submitBtn = this.form.querySelector('.hero-form__button'); // Reusing hero-form classes
+
+    this.submitBtn = this.form.querySelector('.hero-form__button');
     this.submitBtnText = this.submitBtn?.querySelector('.btn__text');
     this.originalBtnText = this.submitBtnText?.textContent || 'Записатись на консультацію';
-    
+
     this.init();
   }
 
   init() {
+    this.renameInputs();
     this.initPhoneMask();
     this.initValidation();
     this.initSubmitHandler();
   }
 
   /**
+   * Rename inputs to match required output format
+   */
+  renameInputs() {
+    const nameInput = this.form.querySelector('input[name="name"]');
+    if (nameInput) nameInput.name = "Ім'я";
+
+    const phoneInput = this.form.querySelector('input[name="phone"]');
+    if (phoneInput) phoneInput.name = "Телефон";
+  }
+
+  /**
    * Initialize phone input mask (+38 format)
    */
   initPhoneMask() {
-    const phoneInput = this.form.querySelector('input[type="tel"], input[name="phone"]');
+    const phoneInput = this.form.querySelector('input[type="tel"], input[name="phone"], input[name="Телефон"]');
     if (!phoneInput) return;
 
     // Set initial value
@@ -37,15 +49,15 @@ class CtaForm {
 
     phoneInput.addEventListener('input', (e) => {
       let value = e.target.value.replace(/\D/g, '');
-      
+
       // Ensure starts with 38
       if (!value.startsWith('38')) {
         value = '38' + value;
       }
-      
+
       // Limit to 12 digits (38 + 10 digits)
       value = value.substring(0, 12);
-      
+
       // Format: +38 (0XX) XXX-XX-XX
       let formatted = '+';
       if (value.length > 0) formatted += value.substring(0, 2);
@@ -53,7 +65,7 @@ class CtaForm {
       if (value.length > 5) formatted += ') ' + value.substring(5, 8);
       if (value.length > 8) formatted += '-' + value.substring(8, 10);
       if (value.length > 10) formatted += '-' + value.substring(10, 12);
-      
+
       e.target.value = formatted;
     });
 
@@ -140,9 +152,9 @@ class CtaForm {
     // Reset inputs
     const inputs = this.form.querySelectorAll('.hero-form__input');
     inputs.forEach(input => {
-      if (input.type === 'tel' || input.name === 'phone') {
+      if (input.type === 'tel' || input.name === 'phone' || input.name === 'Телефон') {
         input.value = '+38 ';
-      } else {
+      } else if (input.name === 'name' || input.name === "Ім'я") {
         input.value = '';
       }
       input.classList.remove('is-invalid');
@@ -165,17 +177,18 @@ class CtaForm {
       input.classList.remove('is-invalid');
 
       const value = input.value.trim();
-      
+
       // For phone, check if it's just the prefix
-      if (input.type === 'tel' || input.name === 'phone') {
+      if (input.type === 'tel' || input.name === 'phone' || input.name === 'Телефон') {
         const phoneDigits = value.replace(/\D/g, '');
         if (phoneDigits.length !== 12) {
           isValid = false;
           input.classList.add('is-invalid');
           if (!firstInvalid) firstInvalid = input;
         }
-      } else {
-        if (!value) {
+      } else if (input.name === 'name' || input.name === "Ім'я") {
+        // Валідація для поля "Ім'я"
+        if (!value || value.length < 2) {
           isValid = false;
           input.classList.add('is-invalid');
           if (!firstInvalid) firstInvalid = input;
